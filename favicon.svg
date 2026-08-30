@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PreJogo90">
+  <rect width="64" height="64" rx="14" fill="#0E1712"/>
+  <path d="M2 0h22L12 64H-10z" fill="#12B65F"/>
+  <text x="38" y="42" text-anchor="middle"
+        font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace"
+        font-size="26" font-weight="800" fill="#FFFFFF" letter-spacing="-1">90</text>
+</svg>

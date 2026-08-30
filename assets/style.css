@@ -387,3 +387,9 @@ footer.site .fbottom{max-width:var(--max);margin:18px auto 0;padding:16px 20px 0
 .gcard .gt{font-family:'Archivo';font-weight:800;font-size:.86rem;margin-bottom:6px}
 .gcard p{font-size:.8rem;color:var(--muted);margin:0 0 6px}
 .gcard a{font-size:.8rem;font-weight:700;color:var(--brand-deep)}
+
+/* ---------- chances (probabilidade como número principal) ---------- */
+.probbars{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.probbars .probrow:last-child{margin-bottom:0}
+.probv{font-family:'JetBrains Mono';font-weight:800;color:var(--brand-deep);
+  background:var(--good-soft);border-radius:7px;padding:5px 10px;display:inline-block;min-width:52px}
