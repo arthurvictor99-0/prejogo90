@@ -55,8 +55,11 @@
     }
   };
 
-  /* ---------- filtro da lista de jogos (home / jogos) ---------- */
+  /* ---------- filtro da lista de jogos (SOMENTE a home) ----------
+     A página /jogos.html tem o seu próprio controlador, mais completo,
+     no bloco do fim deste arquivo. */
   document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.jogos-layout')) return;
     var chips = document.querySelectorAll('[data-filtro]');
     if (!chips.length) return;
     chips.forEach(function (chip) {
@@ -103,5 +106,112 @@
         window.track('tab_view', { aba: a });
       });
     });
+  });
+})();
+
+/* ==========================================================================
+   Página de Jogos — filtros, favoritos e "meus jogos"
+   ========================================================================== */
+(function () {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabela = document.querySelector('.jogos-layout');
+    if (!tabela) return;
+
+    var estado = { regiao: 'todos', vista: 'todos', comps: null };
+
+    /* ---- favoritos (localStorage) ---- */
+    function lerFavs() {
+      try { return JSON.parse(localStorage.getItem('p90-favs') || '[]'); }
+      catch (e) { return []; }
+    }
+    function salvarFavs(l) {
+      try { localStorage.setItem('p90-favs', JSON.stringify(l)); } catch (e) {}
+    }
+    function pintarFavs() {
+      var favs = lerFavs();
+      document.querySelectorAll('.fav').forEach(function (b) {
+        b.classList.toggle('on', favs.indexOf(b.dataset.slug) > -1);
+      });
+    }
+    document.querySelectorAll('.fav').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        var favs = lerFavs(), i = favs.indexOf(b.dataset.slug);
+        if (i > -1) favs.splice(i, 1); else favs.push(b.dataset.slug);
+        salvarFavs(favs);
+        pintarFavs();
+        if (estado.vista === 'favoritos') aplicar();
+      });
+    });
+
+    /* ---- aplica todos os filtros ---- */
+    function aplicar() {
+      var favs = lerFavs();
+      var compsAtivas = {};
+      document.querySelectorAll('[data-comp][type=checkbox]').forEach(function (c) {
+        compsAtivas[c.dataset.comp] = c.checked;
+      });
+
+      var visiveis = 0;
+      document.querySelectorAll('tr.jt-jogo').forEach(function (tr) {
+        var okRegiao = estado.regiao === 'todos' || tr.dataset.regiao === estado.regiao;
+        var okComp = compsAtivas[tr.dataset.comp] !== false;
+        var okVista = estado.vista === 'todos' || favs.indexOf(tr.dataset.slug) > -1;
+        var mostrar = okRegiao && okComp && okVista;
+        tr.style.display = mostrar ? '' : 'none';
+        if (mostrar) visiveis++;
+      });
+
+      // cabeçalhos de competição sem jogos visíveis somem
+      document.querySelectorAll('tr.jt-comp').forEach(function (tr) {
+        var comp = tr.dataset.comp, algum = false, n = tr.nextElementSibling;
+        while (n && n.classList.contains('jt-jogo')) {
+          if (n.dataset.comp === comp && n.style.display !== 'none') { algum = true; break; }
+          n = n.nextElementSibling;
+        }
+        tr.style.display = algum ? '' : 'none';
+      });
+
+      // blocos de dia sem jogos visíveis somem
+      document.querySelectorAll('.jt-bloco').forEach(function (bl) {
+        var algum = Array.prototype.some.call(
+          bl.querySelectorAll('tr.jt-jogo'), function (t) { return t.style.display !== 'none'; });
+        bl.style.display = algum ? '' : 'none';
+      });
+
+      var vazio = document.getElementById('lista-vazia');
+      if (vazio) vazio.style.display = visiveis ? 'none' : 'block';
+    }
+
+    /* ---- controles ---- */
+    document.querySelectorAll('[data-filtro]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        estado.regiao = b.dataset.filtro;
+        document.querySelectorAll('[data-filtro]').forEach(function (x) { x.classList.toggle('on', x === b); });
+        aplicar();
+      });
+    });
+    document.querySelectorAll('[data-vista]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        estado.vista = b.dataset.vista;
+        document.querySelectorAll('[data-vista]').forEach(function (x) { x.classList.toggle('on', x === b); });
+        aplicar();
+      });
+    });
+    document.querySelectorAll('[data-comp][type=checkbox]').forEach(function (c) {
+      c.addEventListener('change', aplicar);
+    });
+    var limpar = document.getElementById('limpar');
+    if (limpar) limpar.addEventListener('click', function () {
+      estado.regiao = 'todos'; estado.vista = 'todos';
+      document.querySelectorAll('[data-comp][type=checkbox]').forEach(function (c) { c.checked = true; });
+      document.querySelectorAll('[data-filtro]').forEach(function (x) { x.classList.toggle('on', x.dataset.filtro === 'todos'); });
+      document.querySelectorAll('[data-vista]').forEach(function (x) { x.classList.toggle('on', x.dataset.vista === 'todos'); });
+      aplicar();
+    });
+
+    pintarFavs();
+    aplicar();
   });
 })();
