@@ -393,3 +393,82 @@ footer.site .fbottom{max-width:var(--max);margin:18px auto 0;padding:16px 20px 0
 .probbars .probrow:last-child{margin-bottom:0}
 .probv{font-family:'JetBrains Mono';font-weight:800;color:var(--brand-deep);
   background:var(--good-soft);border-radius:7px;padding:5px 10px;display:inline-block;min-width:52px}
+
+/* ==========================================================================
+   Central do Jogo — layout com sidebar (2 colunas de conteúdo)
+   ========================================================================== */
+.central{display:grid;gap:20px;padding-top:18px}
+@media(min-width:1000px){.central{grid-template-columns:290px minmax(0,1fr);align-items:start}}
+
+/* ---- sidebar ---- */
+.sidebar{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;align-self:start}
+@media(min-width:1000px){.sidebar{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto}}
+.sb-head{padding:14px 16px;border-bottom:1px solid var(--line)}
+.sb-head h2{margin:0;font-size:.92rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;
+  display:flex;align-items:center;gap:8px}
+.sb-head h2 .ico{color:var(--brand-deep);font-size:1.1rem}
+.sb-comp{padding:10px 16px 6px;font-family:'Archivo';font-size:.62rem;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--surface-2)}
+.sb-jogo{display:flex;gap:11px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);
+  border-left:3px solid transparent;transition:background .12s}
+.sb-jogo:hover{background:var(--sunk)}
+.sb-jogo.on{background:var(--good-soft);border-left-color:var(--brand)}
+.sb-hora{font-family:'JetBrains Mono';font-weight:800;font-size:.78rem;color:var(--muted);flex-shrink:0}
+.sb-jogo.on .sb-hora{color:var(--brand-deep)}
+.sb-times{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:.84rem;font-weight:600}
+.sb-t{display:flex;align-items:center;gap:7px;min-width:0}
+.sb-t > span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-todos{display:flex;align-items:center;justify-content:center;gap:7px;padding:13px;
+  font-family:'Archivo';font-weight:700;font-size:.8rem;color:var(--brand-deep)}
+.sb-todos:hover{background:var(--sunk)}
+
+/* ---- conteúdo ---- */
+.conteudo{min-width:0}
+.crumb{font-size:.76rem;color:var(--muted);margin:0 0 12px}
+.crumb a{color:var(--brand-deep)}
+.grid2{display:grid;gap:16px}
+@media(min-width:1180px){.grid2{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* ---- cabeçalho do confronto ---- */
+.mh .mu{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;margin:18px 0 4px}
+.tside{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center}
+.tside-lado{font-family:'Archivo';font-size:.6rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--faint)}
+.mclock{text-align:center}
+.mclock .hora{font-family:'JetBrains Mono';font-weight:800;font-size:1.9rem;color:var(--ink);line-height:1}
+.mclock .hd{font-size:.64rem;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;
+  font-weight:700;margin-top:6px}
+
+/* ---- escudos reais ---- */
+.crest-img{object-fit:contain;border-radius:0;background:transparent;flex-shrink:0}
+.mini-img{width:26px;height:26px;object-fit:contain;flex-shrink:0}
+
+/* ---- momento das equipes ---- */
+.momento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mom-col{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;
+  padding:4px;border-radius:10px}
+.mom-col + .mom-col{border-left:1px solid var(--line)}
+.mom-nome{font-weight:700;font-size:.88rem}
+.mom-cap{font-size:.7rem;color:var(--faint)}
+.mom-vazio{font-size:.78rem;color:var(--faint);padding:8px 0}
+
+/* ---- tabela de comparação ---- */
+table.cmp{width:100%;border-collapse:collapse;font-size:.84rem}
+table.cmp th{font-family:'Archivo';font-size:.7rem;font-weight:800;color:var(--ink);
+  padding:6px 8px;border-bottom:1px solid var(--line-strong);text-align:center}
+table.cmp th:first-child{text-align:left}
+table.cmp th:last-child{text-align:right}
+table.cmp td{padding:8px;border-bottom:1px solid var(--line)}
+table.cmp tr:last-child td{border-bottom:none}
+.cmp-l{text-align:center;color:var(--muted);font-size:.78rem}
+.cmp-a{text-align:left;font-family:'JetBrains Mono';font-weight:700;color:var(--brand-deep);width:22%}
+.cmp-b{text-align:right;font-family:'JetBrains Mono';font-weight:700;color:var(--ink);width:22%}
+
+/* ---- destaques dos números ---- */
+.dest{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line)}
+.dest:last-child{border-bottom:none;padding-bottom:0}
+.dest-i{width:32px;height:32px;border-radius:9px;background:var(--good-soft);color:var(--brand-deep);
+  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.dest-t{font-weight:600;font-size:.88rem;line-height:1.35}
+.dest-s{font-size:.76rem;color:var(--muted);margin-top:2px}
