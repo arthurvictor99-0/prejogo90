@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora — PreJogo90</title>
+<meta name="description" content="Calculadora de odds: converta odds em probabilidade implícita, simule retorno e compare sua estimativa com o mercado. Ferramenta educacional. +18.">
+<link rel="canonical" href="https://prejogo90.com.br/calculadora.html">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .ctabs{display:flex;gap:6px;margin:18px 0 20px;flex-wrap:wrap}
+  .ctab{font-family:'Archivo';font-weight:700;font-size:.82rem;padding:10px 16px;border-radius:10px;
+    border:1px solid var(--line-strong);background:var(--surface);color:var(--muted)}
+  .ctab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .money{display:flex;align-items:center;background:var(--sunk);border:1.5px solid var(--line-strong);
+    border-radius:13px;padding:0 16px}
+  .money:focus-within{border-color:var(--brand)}
+  .money .cur{font-family:'Archivo';font-weight:800;font-size:1.3rem;color:var(--faint)}
+  .money input{flex:1;border:none;background:none;font-family:'JetBrains Mono';font-weight:800;
+    font-size:1.8rem;color:var(--ink);padding:14px 0 14px 8px;width:100%;outline:none;
+    font-variant-numeric:tabular-nums}
+  .shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:11px}
+  .sc{background:var(--surface);border:1.5px solid var(--line-strong);border-radius:11px;padding:11px 0;
+    font-family:'Archivo';font-weight:700;font-size:.9rem;text-align:center}
+  .sc.on{background:var(--brand);color:#04220F;border-color:var(--brand)}
+  .oddrow{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .oddrow .idx{font-family:'JetBrains Mono';font-weight:800;font-size:.74rem;color:var(--faint);width:22px}
+  .oddwrap{flex:1;background:var(--sunk);border:1.5px solid var(--line-strong);border-radius:12px}
+  .oddwrap:focus-within{border-color:var(--brand)}
+  .oddwrap input{width:100%;border:none;background:none;font-family:'JetBrains Mono';font-weight:800;
+    font-size:1.4rem;color:var(--ink);padding:12px 16px;outline:none;font-variant-numeric:tabular-nums}
+  .oddrm{width:38px;height:38px;border-radius:10px;background:var(--surface-2);color:var(--muted);
+    font-size:1rem;flex-shrink:0}
+  .addodd{width:100%;background:var(--surface);border:1.5px dashed var(--line-strong);border-radius:12px;
+    padding:13px;font-family:'Archivo';font-weight:700;font-size:.9rem;color:var(--brand-deep)}
+  .addodd:hover{border-color:var(--brand);background:var(--good-soft)}
+  .result{background:var(--ink);color:#fff;border-radius:18px;padding:24px 20px;text-align:center}
+  .result .rl{font-family:'Archivo';font-size:.7rem;font-weight:800;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--brand)}
+  .result .rbig{font-family:'JetBrains Mono';font-weight:800;font-size:2.7rem;line-height:1;
+    margin:8px 0 4px;color:#fff}
+  .result .rsmall{font-size:.84rem;color:#A9BCAE}
+  .rgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.14);
+    border-radius:12px;overflow:hidden;margin-top:18px}
+  .rgrid .rc{background:rgba(255,255,255,.05);padding:12px 6px}
+  .rgrid .rc .k{font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;color:#93A897;
+    font-weight:700;margin-bottom:3px}
+  .rgrid .rc .v{font-family:'JetBrains Mono';font-weight:800;font-size:.95rem;color:#fff}
+  .explain{background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:13px 15px;
+    margin-top:13px;text-align:center}
+  .explain .eq{font-family:'JetBrains Mono';font-weight:700;font-size:1rem;color:var(--ink)}
+  .explain .cap{font-size:.74rem;color:var(--muted);margin-top:4px}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="in">
+  <a class="brand" href="index.html">
+    <span class="mark"><span>90</span></span>
+    <span>PreJogo<span class="n">90</span><small>Antes da bola rolar</small></span>
+  </a>
+  <nav class="hnav">
+    <a href="index.html">Início</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="calculadora.html" class="on">Calculadora</a>
+    <a href="jogo-responsavel.html">Jogo Responsável</a>
+  </nav>
+  <div class="hright">
+    <div class="toggle" role="group" aria-label="Tema">
+      <button id="tlight" onclick="setTheme('light')" aria-label="Tema claro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></button>
+      <button id="tdark" onclick="setTheme('dark')" aria-label="Tema escuro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 13.5A8.5 8.5 0 0 1 10.5 4a7 7 0 1 0 9.5 9.5Z"/></svg></button>
+    </div>
+    <span class="n18" title="Conteúdo para maiores de 18 anos">18+</span>
+  </div>
+</div></header>
+
+<main><div class="wrap" style="max-width:900px">
+  <div class="ptitle">
+    <h1>Calculadora</h1>
+    <p>Ferramentas para entender os números por trás das odds. Tudo aqui é matemática —
+    <b>nenhuma recomendação de aposta</b>.</p>
+  </div>
+
+  <div class="ctabs">
+    <button class="ctab on" data-calc="retorno">Simular retorno</button>
+    <button class="ctab" data-calc="prob">Odd → probabilidade</button>
+    <button class="ctab" data-calc="ev">Comparar com o mercado</button>
+  </div>
+
+  <!-- ============ SIMULAR RETORNO ============ -->
+  <div data-calcpainel="retorno">
+    <div class="calcgrid">
+      <div>
+        <div class="card">
+          <p class="step"><span class="n">1</span>Valor da simulação</p>
+          <div class="money"><span class="cur">R$</span>
+            <input id="valor" type="text" inputmode="decimal" value="10" aria-label="Valor em reais"></div>
+          <div class="shortcuts" id="shortcuts">
+            <button class="sc" data-v="10">R$ 10</button>
+            <button class="sc" data-v="20">R$ 20</button>
+            <button class="sc" data-v="50">R$ 50</button>
+            <button class="sc" data-v="100">R$ 100</button>
+          </div>
+        </div>
+        <div class="card">
+          <p class="step"><span class="n">2</span>Odd</p>
+          <div id="odds"></div>
+          <button class="addodd" id="addodd">＋ Adicionar outra odd</button>
+        </div>
+      </div>
+      <div>
+        <div class="result">
+          <div class="rl">Retorno estimado</div>
+          <div class="rbig" id="retorno">R$ 20,00</div>
+          <div class="rsmall" id="rsub">com R$ 10,00 na odd 2,00</div>
+          <div class="rgrid">
+            <div class="rc"><div class="k">Valor simulado</div><div class="v" id="rvalor">R$ 10,00</div></div>
+            <div class="rc"><div class="k">Odd total</div><div class="v" id="rodd">2,00</div></div>
+            <div class="rc"><div class="k">Diferença</div><div class="v" id="rdif">R$ 10,00</div></div>
+          </div>
+        </div>
+        <div class="explain">
+          <div class="eq" id="eq">R$ 10,00 × 2,00 = R$ 20,00</div>
+          <div class="cap">Como chegamos nesse valor</div>
+        </div>
+        <div class="disc-odd">Esta é apenas uma <b>simulação matemática</b>. O retorno depende das
+        condições da operadora e do resultado do evento. <b>Não há garantia de retorno.</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ODD → PROBABILIDADE ============ -->
+  <div data-calcpainel="prob" style="display:none">
+    <div class="calcgrid">
+      <div class="card">
+        <p class="step"><span class="n">1</span>Informe a odd</p>
+        <div class="pfield"><label>Odd decimal</label>
+          <div class="iw"><input id="pOdd" type="text" inputmode="decimal" value="2,00"></div></div>
+        <p style="font-size:.78rem;color:var(--muted);margin:14px 0 0">
+          A probabilidade implícita mostra como o mercado precifica aquele resultado.
+          Ela <b>não é uma previsão</b> — é só o inverso da odd.</p>
+      </div>
+      <div>
+        <div class="result">
+          <div class="rl">Probabilidade implícita</div>
+          <div class="rbig" id="pRes">50,0%</div>
+          <div class="rsmall" id="pForm">1 ÷ 2,00 × 100</div>
+        </div>
+        <div class="disc-odd">A soma das probabilidades implícitas de um jogo passa de 100% —
+        a diferença é a <b>margem da casa</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ COMPARAR COM O MERCADO ============ -->
+  <div data-calcpainel="ev" style="display:none">
+    <div class="calcgrid">
+      <div class="card">
+        <p class="step"><span class="n">1</span>Sua estimativa</p>
+        <div class="prow">
+          <div class="pfield"><label>Casa</label><div class="iw">
+            <input id="cp1" type="text" inputmode="decimal" value="50"><span class="u">%</span></div></div>
+          <div class="pfield"><label>Empate</label><div class="iw">
+            <input id="cp2" type="text" inputmode="decimal" value="27"><span class="u">%</span></div></div>
+          <div class="pfield"><label>Fora</label><div class="iw">
+            <input id="cp3" type="text" inputmode="decimal" value="23"><span class="u">%</span></div></div>
+        </div>
+        <div class="sumline">Soma: <b id="csum">100%</b> (ideal: 100%)</div>
+
+        <p class="step"><span class="n">2</span>Odds de referência</p>
+        <div class="prow">
+          <div class="pfield"><label>Casa</label><div class="iw">
+            <input id="co1" type="text" inputmode="decimal" value="2,00"></div></div>
+          <div class="pfield"><label>Empate</label><div class="iw">
+            <input id="co2" type="text" inputmode="decimal" value="3,40"></div></div>
+          <div class="pfield"><label>Fora</label><div class="iw">
+            <input id="co3" type="text" inputmode="decimal" value="4,00"></div></div>
+        </div>
+      </div>
+      <div>
+        <div id="evresult"></div>
+        <div class="disc-odd">Este cálculo compara <b>uma estimativa que você mesmo informou</b> com a
+        odd do mercado. <b>Não é previsão, garantia de resultado nem recomendação de aposta</b> —
+        é apenas a diferença matemática entre dois números.</div>
+      </div>
+    </div>
+  </div>
+</div></main>
+
+<footer class="site">
+  <div class="in">
+    <div class="fbrand"><span class="mark"><span>90</span></span><span class="n18">18+</span></div>
+    <div class="ftxt">
+      <b>PreJogo90</b> é uma plataforma de informação pré-jogo — não operamos apostas.
+      As odds exibidas são de <b>referência do mercado</b>. Podemos receber comissão por cadastros
+      feitos via links de parceiros, o que <b>não altera</b> os dados exibidos.<br><br>
+      <b>Proibido para menores de 18 anos.</b> Apostas envolvem risco real de perda e não são
+      fonte de renda. Aposta não é investimento. Jogue com responsabilidade.
+    </div>
+    <div class="flinks">
+      <a href="jogos.html">Jogos</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="jogo-responsavel.html">Jogo responsável</a>
+    </div>
+  </div>
+  <div class="fbottom">© 2026 PreJogo90 · Antes da bola rolar</div>
+</footer>
+
+<script>
+// app.js é carregado com defer, então esperamos o DOM pronto para ter window.p90
+document.addEventListener('DOMContentLoaded', function(){
+  var P = window.p90;
+  var brl = function(n){ return 'R$ ' + (isFinite(n)?n:0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); };
+
+  /* ---- troca de abas ---- */
+  document.querySelectorAll('[data-calc]').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var c = tab.getAttribute('data-calc');
+      document.querySelectorAll('[data-calc]').forEach(function(t){ t.classList.toggle('on', t===tab); });
+      document.querySelectorAll('[data-calcpainel]').forEach(function(p){
+        p.style.display = p.getAttribute('data-calcpainel')===c ? '' : 'none';
+      });
+      window.track('calculator_tab', {aba:c});
+    });
+  });
+
+  /* ---- 1. simular retorno ---- */
+  var odds = [2.00];
+  function renderOdds(){
+    var box = document.getElementById('odds');
+    box.innerHTML = odds.map(function(o,i){
+      return '<div class="oddrow">' +
+        (odds.length>1 ? '<span class="idx">'+(i+1)+'ª</span>' : '') +
+        '<div class="oddwrap"><input type="text" inputmode="decimal" value="'+P.dec(o)+'" data-i="'+i+'" aria-label="Odd '+(i+1)+'"></div>' +
+        (odds.length>1 ? '<button class="oddrm" data-rm="'+i+'" aria-label="Remover">✕</button>' : '') +
+      '</div>';
+    }).join('');
+    box.querySelectorAll('input').forEach(function(inp){
+      inp.addEventListener('input', function(e){ odds[+e.target.dataset.i] = P.parse(e.target.value); calcRetorno(); });
+    });
+    box.querySelectorAll('[data-rm]').forEach(function(b){
+      b.addEventListener('click', function(){ odds.splice(+b.dataset.rm,1); renderOdds(); calcRetorno(); });
+    });
+  }
+  function calcRetorno(){
+    var valor = P.parse(document.getElementById('valor').value);
+    var total = odds.reduce(function(a,o){ return a * (o>0?o:0); }, 1);
+    var retorno = valor * total, dif = retorno - valor;
+    document.getElementById('retorno').textContent = brl(retorno);
+    document.getElementById('rvalor').textContent = brl(valor);
+    document.getElementById('rodd').textContent = P.dec(total);
+    document.getElementById('rdif').textContent = brl(dif);
+    document.getElementById('rsub').textContent = odds.length>1
+      ? 'com ' + brl(valor) + ' em ' + odds.length + ' odds (total ' + P.dec(total) + ')'
+      : 'com ' + brl(valor) + ' na odd ' + P.dec(total);
+    document.getElementById('eq').textContent = odds.length>1
+      ? brl(valor) + ' × ' + odds.map(P.dec).join(' × ') + ' = ' + brl(retorno)
+      : brl(valor) + ' × ' + P.dec(total) + ' = ' + brl(retorno);
+    document.querySelectorAll('.sc').forEach(function(s){ s.classList.toggle('on', P.parse(s.dataset.v)===valor); });
+  }
+  document.getElementById('valor').addEventListener('input', calcRetorno);
+  document.getElementById('shortcuts').addEventListener('click', function(e){
+    var b = e.target.closest('.sc'); if(!b) return;
+    document.getElementById('valor').value = b.dataset.v; calcRetorno();
+  });
+  document.getElementById('addodd').addEventListener('click', function(){ odds.push(2.00); renderOdds(); calcRetorno(); });
+
+  /* ---- 2. odd -> probabilidade ---- */
+  function calcProb(){
+    var o = P.parse(document.getElementById('pOdd').value);
+    if(o > 1){
+      document.getElementById('pRes').textContent = (100/o).toFixed(1).replace('.',',') + '%';
+      document.getElementById('pForm').textContent = '1 ÷ ' + P.dec(o) + ' × 100';
+    } else {
+      document.getElementById('pRes').textContent = '—';
+      document.getElementById('pForm').textContent = 'informe uma odd maior que 1,00';
+    }
+  }
+  document.getElementById('pOdd').addEventListener('input', calcProb);
+
+  /* ---- 3. comparar com o mercado ---- */
+  function num(id){ return P.parse(document.getElementById(id).value); }
+  function calcEV(){
+    var p = [num('cp1'), num('cp2'), num('cp3')];
+    var o = [num('co1'), num('co2'), num('co3')];
+    var nomes = ['Casa','Empate','Fora'];
+    var soma = p[0]+p[1]+p[2];
+    var el = document.getElementById('csum');
+    el.textContent = soma.toFixed(0) + '%';
+    el.style.color = Math.abs(soma-100) <= 2 ? 'var(--brand-deep)' : 'var(--danger)';
+
+    var algumPos = false;
+    var trs = nomes.map(function(nome,i){
+      var impl = o[i] > 1 ? 100/o[i] : 0;
+      var dif  = o[i] > 1 ? ((p[i]/100)*o[i] - 1) * 100 : 0;
+      if(dif > 0) algumPos = true;
+      return '<tr><td>'+nome+'</td>' +
+        '<td class="mono">'+p[i].toFixed(0)+'%</td>' +
+        '<td class="mono">'+P.dec(o[i])+'</td>' +
+        '<td class="mono">'+impl.toFixed(1).replace('.',',')+'%</td>' +
+        '<td class="mono">'+(dif>=0?'+':'')+dif.toFixed(1).replace('.',',')+'%</td>' +
+        '<td><span class="vtag '+(dif>0?'pos':'neg')+'">'+(dif>0?'a favor':'contra')+'</span></td></tr>';
+    }).join('');
+
+    document.getElementById('evresult').innerHTML =
+      '<div class="evbanner '+(algumPos?'pos':'neg')+'">' +
+        '<span class="eb1">'+(algumPos ? 'Sua estimativa diverge do mercado' : 'Sua estimativa está alinhada ao mercado')+'</span>' +
+        '<span class="eb2">'+(algumPos
+          ? 'Em pelo menos um resultado, a probabilidade que você informou é maior que a implícita na odd.'
+          : 'Nenhum resultado apresentou diferença a favor da sua estimativa.')+'</span>' +
+      '</div>' +
+      '<div class="card" style="overflow-x:auto;margin-bottom:14px">' +
+        '<table class="evtable"><thead><tr><th>Resultado</th><th>Sua prob.</th><th>Odd</th>' +
+        '<th>Prob. implícita</th><th>Diferença</th><th></th></tr></thead><tbody>'+trs+'</tbody></table></div>';
+  }
+  ['cp1','cp2','cp3','co1','co2','co3'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', calcEV);
+  });
+
+  renderOdds(); calcRetorno(); calcProb(); calcEV();
+  window.track('calculator_open');
+});
+</script>
+</body>
+</html>

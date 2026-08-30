@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://prejogo90.com.br/sitemap.xml
