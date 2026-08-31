@@ -607,3 +607,12 @@ tr.jt-jogo:hover .jt-btn{border-color:var(--brand);background:var(--good-soft)}
 .calcgrid,.calcgrid > *{min-width:0}
 .card{min-width:0}
 .step{flex-wrap:wrap}
+
+/* No mobile a Central do Jogo mostra o confronto primeiro;
+   a lista de jogos vai para o fim (quem clicou num jogo quer ver aquele jogo). */
+@media(max-width:999px){
+  .central{display:flex;flex-direction:column}
+  .central .conteudo{order:1}
+  .central .sidebar{order:2}
+  .sidebar .sb-head h2{font-size:.86rem}
+}
