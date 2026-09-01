@@ -659,3 +659,28 @@ tr.jt-jogo:hover .jt-btn{border-color:var(--brand);background:var(--good-soft)}
   .mclock .mplacar{font-size:1.5rem}
   .pl-tag{font-size:.57rem;padding:2px 5px}
 }
+
+/* ---------------------------------------------------- resultados */
+.rs-bloco{padding-bottom:6px}
+.rs-comp{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:6px;
+  padding:14px 2px 8px;border-bottom:1px solid var(--linha);margin-bottom:4px}
+.rs-comp:first-of-type{padding-top:4px}
+.rs-jogo{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--linha)}
+.rs-jogo:last-child{border-bottom:0}
+.rs-t{display:flex;align-items:center;gap:8px;min-width:0;font-size:.88rem;
+  color:var(--muted);font-weight:600}
+.rs-t.casa{justify-content:flex-end;text-align:right}
+.rs-t.fora{justify-content:flex-start}
+.rs-t.ganhou{color:var(--txt);font-weight:800}
+.rs-t img,.rs-t .mini{flex:0 0 auto}
+.rs-p{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:800;font-size:1rem;
+  color:var(--txt);background:var(--chip);border-radius:7px;padding:4px 10px;white-space:nowrap}
+.rs-p i{font-style:normal;color:var(--muted);margin:0 4px;font-weight:600}
+@media(max-width:560px){
+  .rs-jogo{gap:7px;padding:8px 0}
+  .rs-t{font-size:.8rem;gap:6px}
+  .rs-t span:not(.mini){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rs-p{font-size:.9rem;padding:3px 8px}
+}

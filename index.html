@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=a448af6c">
+<link rel="stylesheet" href="assets/style.css?v=e7efbe90">
 <script src="assets/app.js?v=9f9d91c0" defer></script>
-<script src="assets/placares.js?v=b405c14f" defer></script>
+<script src="assets/placares.js?v=04cb5ff5" defer></script>
 </head>
 <body>
 <header class="nav"><div class="in">
@@ -25,7 +25,7 @@
     <span class="mark"><span>90</span></span>
     <span>PreJogo<span class="n">90</span><small>Antes da bola rolar</small></span>
   </a>
-  <nav class="hnav"><a href="index.html" class="on">Início</a><a href="jogos.html">Jogos</a><a href="calculadora.html">Calculadora</a><a href="jogo-responsavel.html">Jogo Responsável</a></nav>
+  <nav class="hnav"><a href="index.html" class="on">Início</a><a href="jogos.html">Jogos</a><a href="resultados.html">Resultados</a><a href="calculadora.html">Calculadora</a><a href="jogo-responsavel.html">Jogo Responsável</a></nav>
   <div class="hright">
     <div class="toggle" role="group" aria-label="Tema">
       <button id="tlight" onclick="setTheme('light')" aria-label="Tema claro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></button>
@@ -57,20 +57,20 @@
       <div class="featured">
       <span class="fl"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg> Jogo em destaque</span>
       <div class="fmu">
-        <div class="fteam"><img class="crest-img" src="https://crests.football-data.org/1783.png" alt="" loading="lazy" width="62" height="62" style="width:62px;height:62px"><span class="tn">Flamengo</span></div>
+        <div class="fteam"><span class="crest" style="width:62px;height:62px;background:#3C5A2E;font-size:1.15rem">LON</span><span class="tn">Londrina</span></div>
         <div class="fclock">
           <div class="x">×</div>
-          <div class="d">Quarta, 02/09 · 02/09</div>
+          <div class="d">Hoje · 01/09</div>
           <div class="t">19:30</div>
         </div>
-        <div class="fteam"><img class="crest-img" src="https://crests.football-data.org/4364.png" alt="" loading="lazy" width="62" height="62" style="width:62px;height:62px"><span class="tn">Mirassol</span></div>
+        <div class="fteam"><span class="crest" style="width:62px;height:62px;background:#B5342A;font-size:1.15rem">JUV</span><span class="tn">Juventude</span></div>
       </div>
       <div class="finfo">
-        <div class="fi"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 2-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><div><div class="k">Competição</div><div class="v">Brasileirão Série A</div></div></div>
-        <div class="fi"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><div><div class="k">Favorito no mercado</div><div class="v">Flamengo · 77%</div></div></div>
+        <div class="fi"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 2-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><div><div class="k">Competição</div><div class="v">Brasileirão Série B</div></div></div>
+        <div class="fi"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><div><div class="k">Favorito no mercado</div><div class="v">Juventude · 37%</div></div></div>
         <div class="fi"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><div class="k">Horário</div><div class="v">19:30 (Brasília)</div></div></div>
       </div>
-      <a class="fbtn" href="jogos/flamengo-x-mirassol.html">Ver análise completa →</a>
+      <a class="fbtn" href="jogos/londrina-x-juventude.html">Ver análise completa →</a>
     </div>
     </div>
   </section>
@@ -89,59 +89,10 @@
         </div>
       </div>
       <a class="grow" href="jogos/londrina-x-juventude.html" data-regiao="brasil" data-p90="londrina|juventude">
-  <span class="time"><span class="h">19:30</span><span class="l">Amanhã</span></span>
+  <span class="time"><span class="h">19:30</span><span class="l">Hoje</span></span>
   <span class="gteams">
     <span class="gteam"><span class="mini" style="background:#3C5A2E">LON</span><span class="nm">Londrina</span></span>
     <span class="gteam"><span class="mini" style="background:#B5342A">JUV</span><span class="nm">Juventude</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/flamengo-x-mirassol.html" data-regiao="brasil" data-p90="flamengo|mirassol">
-  <span class="time"><span class="h">19:30</span><span class="l">Quarta, 02/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/1783.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Flamengo</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/4364.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Mirassol</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/toulouse-x-lille.html" data-regiao="europa" data-p90="toulouse|lille">
-  <span class="time"><span class="h">15:45</span><span class="l">Quinta, 03/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/511.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Toulouse</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/521.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Lille</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/real-sociedad-x-celta-vigo.html" data-regiao="europa" data-p90="real sociedad|celta">
-  <span class="time"><span class="h">16:00</span><span class="l">Quinta, 03/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/92.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Real Sociedad</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/558.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Celta Vigo</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/nautico-x-botafogo-sp.html" data-regiao="brasil" data-p90="nautico|botafogo">
-  <span class="time"><span class="h">20:00</span><span class="l">Quinta, 03/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><span class="mini" style="background:#6B3FA0">NAU</span><span class="nm">Náutico</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/1770.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Botafogo-SP</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/lyon-x-auxerre.html" data-regiao="europa" data-p90="olympique lyon|auxerre">
-  <span class="time"><span class="h">14:00</span><span class="l">Sexta, 04/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/523.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Lyon</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/519.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Auxerre</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/vfb-stuttgart-x-1-fc-koln.html" data-regiao="europa" data-p90="vfb stuttgart|koln">
-  <span class="time"><span class="h">15:30</span><span class="l">Sexta, 04/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/10.png" alt="" loading="lazy" width="26" height="26"><span class="nm">VfB Stuttgart</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/1.png" alt="" loading="lazy" width="26" height="26"><span class="nm">1. FC Köln</span></span>
-  </span>
-  <span class="gbtn">Analisar →</span>
-</a><a class="grow" href="jogos/genoa-x-como.html" data-regiao="europa" data-p90="genoa|como 1907">
-  <span class="time"><span class="h">15:45</span><span class="l">Sexta, 04/09</span></span>
-  <span class="gteams">
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/107.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Genoa</span></span>
-    <span class="gteam"><img class="mini-img" src="https://crests.football-data.org/7397.png" alt="" loading="lazy" width="26" height="26"><span class="nm">Como</span></span>
   </span>
   <span class="gbtn">Analisar →</span>
 </a>
@@ -158,11 +109,11 @@
         <button class="mtab" data-mercado="1x2">Odds</button>
         <button class="mtab" data-mercado="gols">Gols</button>
       </div>
-      <div data-mercado-painel="prob"><table class="mtable"><thead><tr><th>Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="probv">30%</span></td><td><span class="probv">33%</span></td><td><span class="probv">37%</span></td></tr><tr><td>Flamengo × Mirassol</td><td><span class="probv">78%</span></td><td><span class="probv">15%</span></td><td><span class="probv">7%</span></td></tr><tr><td>Toulouse × Lille</td><td><span class="probv">27%</span></td><td><span class="probv">29%</span></td><td><span class="probv">44%</span></td></tr><tr><td>Real Sociedad × Celta Vigo</td><td><span class="probv">48%</span></td><td><span class="probv">27%</span></td><td><span class="probv">25%</span></td></tr><tr><td>Náutico × Botafogo-SP</td><td><span class="probv">47%</span></td><td><span class="probv">28%</span></td><td><span class="probv">25%</span></td></tr><tr><td>Lyon × Auxerre</td><td><span class="probv">63%</span></td><td><span class="probv">22%</span></td><td><span class="probv">15%</span></td></tr></tbody></table></div>
-      <div data-mercado-painel="1x2" style="display:none"><table class="mtable"><thead><tr><th>Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="oddv">3.30</span></td><td><span class="oddv">3.00</span></td><td><span class="oddv">2.70</span></td></tr><tr><td>Flamengo × Mirassol</td><td><span class="oddv">1.30</span></td><td><span class="oddv">6.60</span></td><td><span class="oddv">13.50</span></td></tr><tr><td>Toulouse × Lille</td><td><span class="oddv">3.75</span></td><td><span class="oddv">3.50</span></td><td><span class="oddv">2.23</span></td></tr><tr><td>Real Sociedad × Celta Vigo</td><td><span class="oddv">2.08</span></td><td><span class="oddv">3.75</span></td><td><span class="oddv">4.10</span></td></tr><tr><td>Náutico × Botafogo-SP</td><td><span class="oddv">2.06</span></td><td><span class="oddv">3.40</span></td><td><span class="oddv">3.80</span></td></tr><tr><td>Lyon × Auxerre</td><td><span class="oddv">1.56</span></td><td><span class="oddv">4.57</span></td><td><span class="oddv">6.75</span></td></tr></tbody></table></div>
-      <div data-mercado-painel="gols" style="display:none"><table class="mtable"><thead><tr><th>Jogo</th><th>+2.5</th><th>-2.5</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="oddv">2.52</span></td><td><span class="oddv">1.51</span></td></tr><tr><td>Flamengo × Mirassol</td><td><span class="oddv">1.62</span></td><td><span class="oddv">2.35</span></td></tr><tr><td>Toulouse × Lille</td><td><span class="oddv">2.11</span></td><td><span class="oddv">1.84</span></td></tr><tr><td>Real Sociedad × Celta Vigo</td><td><span class="oddv">1.98</span></td><td><span class="oddv">2.00</span></td></tr><tr><td>Náutico × Botafogo-SP</td><td><span class="oddv">2.12</span></td><td><span class="oddv">1.70</span></td></tr><tr><td>Lyon × Auxerre</td><td><span class="oddv">1.75</span></td><td><span class="oddv">2.25</span></td></tr></tbody></table></div>
+      <div data-mercado-painel="prob"><table class="mtable"><thead><tr><th>Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="probv">30%</span></td><td><span class="probv">33%</span></td><td><span class="probv">37%</span></td></tr></tbody></table></div>
+      <div data-mercado-painel="1x2" style="display:none"><table class="mtable"><thead><tr><th>Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="oddv">3.30</span></td><td><span class="oddv">3.00</span></td><td><span class="oddv">2.70</span></td></tr></tbody></table></div>
+      <div data-mercado-painel="gols" style="display:none"><table class="mtable"><thead><tr><th>Jogo</th><th>+2.5</th><th>-2.5</th></tr></thead><tbody><tr><td>Londrina × Juventude</td><td><span class="oddv">2.52</span></td><td><span class="oddv">1.51</span></td></tr></tbody></table></div>
       <div class="pfoot" style="color:var(--muted);font-size:.74rem">
-        Chances calculadas a partir das odds de referência · atualizadas em 31/08 às 23:52
+        Chances calculadas a partir das odds de referência · atualizadas em 01/09 às 00:05
       </div>
     </section>
   </div>
@@ -196,6 +147,7 @@
     <div class="flinks">
       <a href="jogos.html">Jogos</a>
       <a href="calculadora.html">Calculadora</a>
+      <a href="resultados.html">Resultados</a>
       <a href="jogo-responsavel.html">Jogo responsável</a>
     </div>
   </div>

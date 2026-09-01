@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=a448af6c">
+<link rel="stylesheet" href="assets/style.css?v=e7efbe90">
 <script src="assets/app.js?v=9f9d91c0" defer></script>
-<script src="assets/placares.js?v=b405c14f" defer></script>
+<script src="assets/placares.js?v=04cb5ff5" defer></script>
 </head>
 <body>
 <header class="nav"><div class="in">
@@ -25,7 +25,7 @@
     <span class="mark"><span>90</span></span>
     <span>PreJogo<span class="n">90</span><small>Antes da bola rolar</small></span>
   </a>
-  <nav class="hnav"><a href="index.html">Início</a><a href="jogos.html" class="on">Jogos</a><a href="calculadora.html">Calculadora</a><a href="jogo-responsavel.html">Jogo Responsável</a></nav>
+  <nav class="hnav"><a href="index.html">Início</a><a href="jogos.html" class="on">Jogos</a><a href="resultados.html">Resultados</a><a href="calculadora.html">Calculadora</a><a href="jogo-responsavel.html">Jogo Responsável</a></nav>
   <div class="hright">
     <div class="toggle" role="group" aria-label="Tema">
       <button id="tlight" onclick="setTheme('light')" aria-label="Tema claro"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></button>
@@ -54,8 +54,10 @@
         <label class="fchk"><input type="checkbox" data-comp="Brasileirão Série A" checked>
       <span>Brasileirão Série A</span></label><label class="fchk"><input type="checkbox" data-comp="Brasileirão Série B" checked>
       <span>Brasileirão Série B</span></label><label class="fchk"><input type="checkbox" data-comp="Bundesliga" checked>
-      <span>Bundesliga</span></label><label class="fchk"><input type="checkbox" data-comp="La Liga" checked>
-      <span>La Liga</span></label><label class="fchk"><input type="checkbox" data-comp="Ligue 1" checked>
+      <span>Bundesliga</span></label><label class="fchk"><input type="checkbox" data-comp="Champions League" checked>
+      <span>Champions League</span></label><label class="fchk"><input type="checkbox" data-comp="La Liga" checked>
+      <span>La Liga</span></label><label class="fchk"><input type="checkbox" data-comp="Libertadores" checked>
+      <span>Libertadores</span></label><label class="fchk"><input type="checkbox" data-comp="Ligue 1" checked>
       <span>Ligue 1</span></label><label class="fchk"><input type="checkbox" data-comp="Premier League" checked>
       <span>Premier League</span></label><label class="fchk"><input type="checkbox" data-comp="Serie A" checked>
       <span>Serie A</span></label>
@@ -74,7 +76,7 @@
       <div class="ptitle"><h1>Jogos</h1>
         <p>Partidas dos próximos dias com chances calculadas a partir das odds de referência.</p></div>
       <section class="jt-bloco">
-      <div class="jt-head"><h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Amanhã</h2>
+      <div class="jt-head"><h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Hoje</h2>
         <span class="jt-count">1 jogo(s)</span></div>
       <div class="jt-wrap"><table class="jt">
         <thead><tr><th>Horário</th><th>Rodada</th><th>Jogo</th>
@@ -99,7 +101,7 @@
       </tr></tbody>
       </table></div>
     </section><section class="jt-bloco">
-      <div class="jt-head"><h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Quarta, 02/09</h2>
+      <div class="jt-head"><h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Amanhã</h2>
         <span class="jt-count">1 jogo(s)</span></div>
       <div class="jt-wrap"><table class="jt">
         <thead><tr><th>Horário</th><th>Rodada</th><th>Jogo</th>
@@ -1336,6 +1338,133 @@
         </td>
       </tr></tbody>
       </table></div>
+    </section><section class="jt-bloco">
+      <div class="jt-head"><h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg> Terça, 08/09</h2>
+        <span class="jt-count">7 jogo(s)</span></div>
+      <div class="jt-wrap"><table class="jt">
+        <thead><tr><th>Horário</th><th>Rodada</th><th>Jogo</th>
+          <th>Chances (1 · X · 2)</th><th></th></tr></thead>
+        <tbody><tr class="jt-comp" data-comp="Champions League" data-regiao="europa"><td colspan="5"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 2-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Champions League</td></tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="aek-athens-x-lask" data-p90="aek athens|lask">
+        <td class="jt-hora">13:45</td>
+        <td class="jt-rodada">—</td>
+        <td class="jt-times">
+          <a href="jogos/aek-athens-x-lask.html">
+            <span class="jt-t"><span class="mini" style="background:#C07A00">AA</span><span>AEK Athens</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><span class="mini" style="background:#6B3FA0">LAS</span><span>LASK</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">55%</span><span class="jt-p">24%</span><span class="jt-p">21%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="aek-athens-x-lask" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/aek-athens-x-lask.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="club-brugge-x-aston-villa" data-p90="brugge|aston villa">
+        <td class="jt-hora">13:45</td>
+        <td class="jt-rodada">—</td>
+        <td class="jt-times">
+          <a href="jogos/club-brugge-x-aston-villa.html">
+            <span class="jt-t"><span class="mini" style="background:#B5342A">CB</span><span>Club Brugge</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/58.png" alt="" loading="lazy" width="26" height="26"><span>Aston Villa</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">35%</span><span class="jt-p">25%</span><span class="jt-p">40%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="club-brugge-x-aston-villa" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/club-brugge-x-aston-villa.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="borussia-dortmund-x-villarreal" data-p90="borussia dortmund|villarreal">
+        <td class="jt-hora">16:00</td>
+        <td class="jt-rodada">Rodada 2</td>
+        <td class="jt-times">
+          <a href="jogos/borussia-dortmund-x-villarreal.html">
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/4.png" alt="" loading="lazy" width="26" height="26"><span>Borussia Dortmund</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/94.png" alt="" loading="lazy" width="26" height="26"><span>Villarreal</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">55%</span><span class="jt-p">23%</span><span class="jt-p">22%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="borussia-dortmund-x-villarreal" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/borussia-dortmund-x-villarreal.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="real-madrid-x-inter-milan" data-p90="real madrid|inter">
+        <td class="jt-hora">16:00</td>
+        <td class="jt-rodada">Rodada 4</td>
+        <td class="jt-times">
+          <a href="jogos/real-madrid-x-inter-milan.html">
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/86.png" alt="" loading="lazy" width="26" height="26"><span>Real Madrid</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/108.png" alt="" loading="lazy" width="26" height="26"><span>Inter Milan</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">61%</span><span class="jt-p">21%</span><span class="jt-p">18%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="real-madrid-x-inter-milan" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/real-madrid-x-inter-milan.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="lille-x-real-betis" data-p90="lille|real betis">
+        <td class="jt-hora">16:00</td>
+        <td class="jt-rodada">Rodada 3</td>
+        <td class="jt-times">
+          <a href="jogos/lille-x-real-betis.html">
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/521.png" alt="" loading="lazy" width="26" height="26"><span>Lille</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/90.png" alt="" loading="lazy" width="26" height="26"><span>Real Betis</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">43%</span><span class="jt-p">27%</span><span class="jt-p">30%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="lille-x-real-betis" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/lille-x-real-betis.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-jogo" data-comp="Champions League" data-regiao="europa" data-slug="porto-x-manchester-city" data-p90="porto|manchester city">
+        <td class="jt-hora">16:00</td>
+        <td class="jt-rodada">—</td>
+        <td class="jt-times">
+          <a href="jogos/porto-x-manchester-city.html">
+            <span class="jt-t"><span class="mini" style="background:#C07A00">POR</span><span>Porto</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/65.png" alt="" loading="lazy" width="26" height="26"><span>Manchester City</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">22%</span><span class="jt-p">24%</span><span class="jt-p">54%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="porto-x-manchester-city" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/porto-x-manchester-city.html">Analisar</a>
+        </td>
+      </tr><tr class="jt-comp" data-comp="Libertadores" data-regiao="brasil"><td colspan="5"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 2-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Libertadores</td></tr><tr class="jt-jogo" data-comp="Libertadores" data-regiao="brasil" data-slug="fluminense-rj-x-platense" data-p90="fluminense|platense">
+        <td class="jt-hora">19:00</td>
+        <td class="jt-rodada">Rodada 26</td>
+        <td class="jt-times">
+          <a href="jogos/fluminense-rj-x-platense.html">
+            <span class="jt-t"><img class="mini-img" src="https://crests.football-data.org/1765.png" alt="" loading="lazy" width="26" height="26"><span>Fluminense-RJ</span></span>
+            <span class="jt-x">×</span>
+            <span class="jt-t"><span class="mini" style="background:#C07A00">PLA</span><span>Platense</span></span>
+          </a>
+        </td>
+        <td class="jt-ch">
+          <span class="jt-p">64%</span><span class="jt-p">24%</span><span class="jt-p">12%</span>
+        </td>
+        <td class="jt-acao">
+          <button class="fav" data-slug="fluminense-rj-x-platense" aria-label="Favoritar"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8L12 3Z"/></svg></button>
+          <a class="jt-btn" href="jogos/fluminense-rj-x-platense.html">Analisar</a>
+        </td>
+      </tr></tbody>
+      </table></div>
     </section>
       <div id="lista-vazia" class="card" style="display:none;text-align:center;color:var(--muted)">
         Nenhum jogo com esse filtro.
@@ -1360,6 +1489,7 @@
     <div class="flinks">
       <a href="jogos.html">Jogos</a>
       <a href="calculadora.html">Calculadora</a>
+      <a href="resultados.html">Resultados</a>
       <a href="jogo-responsavel.html">Jogo responsável</a>
     </div>
   </div>
