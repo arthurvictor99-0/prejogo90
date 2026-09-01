@@ -1,0 +1,55 @@
+name: Placares do dia
+
+# Job leve: uma única requisição ao football-data.org, que devolve todos os
+# jogos do dia. Roda neste repositório (público) porque minutos de Actions em
+# repositório público são ilimitados — no repo privado do gerador consumiria a
+# cota de 2000 min/mês.
+#
+# Secret necessário (Settings → Secrets and variables → Actions):
+#   FOOTBALL_DATA_TOKEN  o mesmo token já usado no repositório do gerador
+#
+# Atenção: o cron do GitHub Actions não é pontual (costuma atrasar de 5 a 15
+# minutos). Por isso a página sempre exibe o horário da coleta junto do placar
+# parcial, em vez de se apresentar como "ao vivo".
+on:
+  schedule:
+    - cron: "*/15 11-23 * * *"   # 08h–20h de Brasília
+    - cron: "*/15 0-4 * * *"     # 21h–01h de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: placares
+  cancel-in-progress: true
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependência
+        run: pip install requests
+
+      - name: Buscar placares
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python placares.py
+
+      - name: Publicar se mudou
+        run: |
+          if [ -z "$(git status --porcelain dados/placares.json)" ]; then
+            echo "Sem mudança nos placares."
+          else
+            git config user.name "prejogo90-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add dados/placares.json
+            git commit -m "Placares $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+            git push
+          fi

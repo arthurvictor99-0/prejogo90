@@ -640,3 +640,22 @@ tr.jt-jogo:hover .jt-btn{border-color:var(--brand);background:var(--good-soft)}
   .h2h-l{grid-template-columns:1fr auto 1fr;gap:8px}
   .h2h-d{display:none}
 }
+
+/* ---------------------------------------------------- placares do dia */
+.pl-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;padding:2px 6px;border-radius:5px;white-space:nowrap;line-height:1.4}
+.pl-tag.fim{background:var(--chip);color:var(--muted)}
+.pl-tag.vivo{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.pl-tag.adiado{background:var(--chip);color:var(--muted)}
+.pl-n{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-weight:800;font-size:1rem;color:var(--txt);white-space:nowrap}
+.jt-hora .pl-n,.sb-hora .pl-n{font-size:.92rem;margin-bottom:2px}
+.sb-hora{min-width:0}
+.mclock .mplacar{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:900;
+  font-size:1.9rem;letter-spacing:-.02em;color:var(--txt);line-height:1.1;white-space:nowrap}
+.grow .time .pl-n{font-size:.95rem}
+.grow .time .pl-tag{margin-top:3px}
+@media(max-width:560px){
+  .mclock .mplacar{font-size:1.5rem}
+  .pl-tag{font-size:.57rem;padding:2px 5px}
+}
